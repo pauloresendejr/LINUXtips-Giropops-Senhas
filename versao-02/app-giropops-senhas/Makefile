@@ -1,4 +1,4 @@
-all: build scan
+all: lint build scan
 
 clean: clean-docker clean-image
 
@@ -16,4 +16,7 @@ clean-image:
 	docker image remove $(shell basename $(CURDIR))
 
 run: 
-	docker run -d --name app-giropops -p 5000:5000 --network giropops-network -e REDIS_HOST="redis-server" $(shell basename $(CURDIR))
+	docker run -d --name $(shell basename $(CURDIR)) -p 5000:5000 --network giropops-network -e REDIS_HOST="redis-giropops-senhas" $(shell basename $(CURDIR))
+
+lint: 
+	hadolint Dockerfile
