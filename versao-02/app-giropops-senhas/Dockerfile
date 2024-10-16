@@ -1,7 +1,7 @@
 FROM alpine:3.20.3 AS base
 
 LABEL maintainer="pauloresendejr@gmail.com"
-LABEL PICKID="PICK2024-T2"
+LABEL pickid="PICK2024-T2"
 
 RUN apk update && \
     apk upgrade && \
