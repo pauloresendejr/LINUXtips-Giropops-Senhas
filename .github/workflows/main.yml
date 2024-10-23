@@ -13,4 +13,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: '${{ github.repository }}'
+          ref: 'main'
           set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
+
