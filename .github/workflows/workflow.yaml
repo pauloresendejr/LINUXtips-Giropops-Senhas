@@ -1,0 +1,14 @@
+name: PICK Workflow
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout no Repo
+      uses: actions/checkout@v4
+
+    - name: Run a one-line script
+      run: echo Hello Giropops!
