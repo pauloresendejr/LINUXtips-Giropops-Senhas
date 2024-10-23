@@ -11,10 +11,6 @@ jobs:
     steps:
       - name: Checkout no Repo
         uses: actions/checkout@v4
-
-      - name: Directory
-        run: |
-          echo $PWD
-        shell: bash
-
-      
+        with:
+          repository: '${{ github.repository }}'
+          set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
