@@ -1,7 +1,10 @@
 name: PICK2024-T2 Workflow
 
 on:
-  push:
+  # push:
+  #   branches:
+  #     - main
+  hadolint:
     branches:
       - main
 
