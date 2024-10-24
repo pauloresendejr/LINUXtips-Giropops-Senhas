@@ -16,6 +16,8 @@ jobs:
           ref: 'main'
           set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
   hadolint:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout no Repo
         uses: actions/checkout@v4
         with:
@@ -27,22 +29,22 @@ jobs:
         with:
           dockerfile: Dockerfile
           output-file: hadolint-versao-01
-  update-commit:
-      - name: Update Pull Request
-        uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        with:
-          script: |
-            const output = `
-            #### Hadolint: \`${{ steps.hadolint.outcome }}\`
-            \`\`\`
-            ${process.env.HADOLINT_RESULTS}
-            \`\`\`
-            `;
+  # update-commit:
+  #     - name: Update Pull Request
+  #       uses: actions/github-script@v6
+  #       if: github.event_name == 'pull_request'
+  #       with:
+  #         script: |
+  #           const output = `
+  #           #### Hadolint: \`${{ steps.hadolint.outcome }}\`
+  #           \`\`\`
+  #           ${process.env.HADOLINT_RESULTS}
+  #           \`\`\`
+  #           `;
     
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
+  #           github.rest.issues.createComment({
+  #             issue_number: context.issue.number,
+  #             owner: context.repo.owner,
+  #             repo: context.repo.repo,
+  #             body: output
+  #           })
