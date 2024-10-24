@@ -1,28 +1,23 @@
 name: PICK2024-T2 Workflow
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  hadolint:
+  push:
     branches:
       - main
 
 jobs:
-  # push:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout no Repo
-  #       uses: actions/checkout@v4
-  #       with:
-  #         repository: '${{ github.repository }}'
-  #         ref: 'main'
-  #         set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
-  hadolint:
+  push:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: hadolint/hadolint-action@v3.1.0
+      - name: Checkout no Repo
+        uses: actions/checkout@v4
         with:
-          dockerfile: Dockerfile
-          output-file: hadolint-versao-01
+          repository: '${{ github.repository }}'
+          ref: 'main'
+          set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
+      - name: Hadolint
+        uses: actions/checkout@v3
+        uses: hadolint/hadolint-action@v3.1.0
+          with:
+            dockerfile: Dockerfile
+            output-file: hadolint-versao-01
