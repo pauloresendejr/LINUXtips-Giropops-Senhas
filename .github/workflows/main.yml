@@ -9,13 +9,13 @@ jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout no Repo
-      #   uses: actions/checkout@v4
-      #   with:
-      #     repository: '${{ github.repository }}'
-      #     ref: 'main'
-      #     set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
-    hadolint:
+      - name: Checkout no Repo
+        uses: actions/checkout@v4
+        with:
+          repository: '${{ github.repository }}'
+          ref: 'main'
+          set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
+  hadolint:
       - name: Checkout no Repo
         uses: actions/checkout@v4
         with:
@@ -27,7 +27,7 @@ jobs:
         with:
           dockerfile: Dockerfile
           output-file: hadolint-versao-01
-    update-commit:
+  update-commit:
       - name: Update Pull Request
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
