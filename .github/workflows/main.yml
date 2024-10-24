@@ -15,8 +15,13 @@ jobs:
           repository: '${{ github.repository }}'
           ref: 'main'
           set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
-      - name: Hadolint
-        uses: hadolint/hadolint-action@v3.1.0
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: [push]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: Dockerfile
-          output-file: hadolint-versao-01
+          dockerfile: versao-01/Dockerfile
+  
