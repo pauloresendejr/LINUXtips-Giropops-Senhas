@@ -16,8 +16,7 @@ jobs:
           ref: 'main'
           set-safe-directory: '/home/runner/work/LINUXtips-Giropops-Senhas/LINUXtips-Giropops-Senhas'
       - name: Hadolint
-        uses: actions/checkout@v3
         uses: hadolint/hadolint-action@v3.1.0
-          with:
-            dockerfile: Dockerfile
-            output-file: hadolint-versao-01
+        with:
+          dockerfile: Dockerfile
+          output-file: hadolint-versao-01
